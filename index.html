@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laplace Transform Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Laplace TransformPedia</h1>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Laplace Transform</h2>
+            <p>The Laplace Transform is an integral transform that converts a function of time (usually denoted as f(t))
+                into a function of a complex variable (usually denoted as F(s)). It is particularly useful for analyzing
+                linear time-invariant systems.</p>
+            <p>The Laplace Transform of a function f(t) is defined as:</p>
+            <p><em>F(s) = ∫<sub>0</sub><sup>∞</sup> e<sup>-st</sup> f(t) dt</em></p>
+            <h3>Formulas and Properties</h3>
+            <ul>
+                <li><strong>Linearity:</strong> L{a f(t) + b g(t)} = a F(s) + b G(s)</li>
+                <li><strong>Time Shifting:</strong> L{f(t - a) u(t - a)} = e<sup>-as</sup> F(s)</li>
+                <li><strong>Frequency Shifting:</strong> L{e<sup>at</sup> f(t)} = F(s - a)</li>
+                <li><strong>First Derivative:</strong> L{f'(t)} = s F(s) - f(0)</li>
+                <li><strong>Second Derivative:</strong> L{f''(t)} = s<sup>2</sup> F(s) - s f(0) - f'(0)</li>
+                <li><strong>Integral:</strong> L{∫<sub>0</sub><sup>t</sup> f(τ) dτ} = F(s) / s</li>
+                <li><strong>Unit Step Function:</strong> L{u(t)} = 1/s</li>
+                <li><strong>Ramp Function:</strong> L{t u(t)} = 1/s<sup>2</sup></li>
+                <li><strong>Exponential Decay:</strong> L{e<sup>-at</sup>} = 1/(s + a)</li>
+                <li><strong>Sinusoidal Function:</strong> L{sin(at)} = a / (s<sup>2</sup> + a<sup>2</sup>)</li>
+                <li><strong>Cosinusoidal Function:</strong> L{cos(at)} = s / (s<sup>2</sup> + a<sup>2</sup>)</li>
+                <li><strong>Hyperbolic Sine:</strong> L{sinh(at)} = a / (s<sup>2</sup> - a<sup>2</sup>)</li>
+                <li><strong>Hyperbolic Cosine:</strong> L{cosh(at)} = s / (s<sup>2</sup> - a<sup>2</sup>)</li>
+                <li><strong>Heaviside Step Function:</strong> L{u(t - a)} = e<sup>-as</sup> / s</li>
+                <li><strong>Dirac Delta Function:</strong> L{δ(t - a)} = e<sup>-as</sup></li>
+                <li><strong>Exponential Growth:</strong> L{e<sup>at</sup> t<sup>n</sup>} = n! / (s - a)<sup>n+1</sup>
+                </li>
+                <li><strong>Convolution:</strong> L{f(t) * g(t)} = F(s) G(s)</li>
+                <li><strong>Multiplication by t:</strong> L{t f(t)} = -dF(s)/ds</li>
+                <li><strong>Initial Value Theorem:</strong> f(0<sup>+</sup>) = lim<sub>s→∞</sub> s F(s)</li>
+                <li><strong>Final Value Theorem:</strong> f(∞) = lim<sub>s→0</sub> s F(s)</li>
+                <li><strong>Shift in s-Domain:</strong> L{e<sup>-at</sup> f(t)} = F(s + a)</li>
+                <li><strong>Frequency Domain Differentiation:</strong> L{t f(t)} = -F'(s)</li>
+                <li><strong>Frequency Domain Integration:</strong> L{f(t)/t} = ∫F(s) ds</li>
+                <li><strong>General Exponential Function:</strong> L{e<sup>-at</sup> t<sup>n</sup>} = Γ(n + 1) / (s +
+                    a)<sup>n + 1</sup></li>
+                <li><strong>Impulse Function:</strong> L{δ(t)} = 1</li>
+                <li><strong>Derivative of Impulse Function:</strong> L{δ'(t)} = s</li>
+                <li><strong>nth Derivative:</strong> L{f<sup>(n)</sup>(t)} = s<sup>n</sup> F(s) - s<sup>n-1</sup> f(0) -
+                    ... - f<sup>(n-1)</sup>(0)</li>
+                <li><strong>Integral from a to t:</strong> L{∫<sub>a</sub><sup>t</sup> f(τ) dτ} = F(s)/s -
+                    e<sup>-as</sup> f(a)/s</li>
+                <li><strong>Constant Function:</strong> L{c} = c/s</li>
+                <li><strong>Exponential Function:</strong> L{e<sup>bt</sup>} = 1/(s - b)</li>
+                <li><strong>Cosine with Exponential Decay:</strong> L{e<sup>-at</sup> cos(bt)} = (s + a) / ((s +
+                    a)<sup>2</sup> + b<sup>2</sup>)</li>
+                <li><strong>Sine with Exponential Decay:</strong> L{e<sup>-at</sup> sin(bt)} = b / ((s + a)<sup>2</sup>
+                    + b<sup>2</sup>)</li>
+                <li><strong>Polynomial Function:</strong> L{t<sup>n</sup>} = n! / s<sup>n+1</sup></li>
+                <li><strong>Unit Impulse Function:</strong> L{δ(t - a)} = e<sup>-as</sup></li>
+                <li><strong>Unit Step Function (Shifted):</strong> L{u(t - a)} = e<sup>-as</sup>/s</li>
+                <li><strong>Integral of f(t):</strong> L{∫<sub>0</sub><sup>t</sup> f(τ) dτ} = F(s) / s</li>
+                <li><strong>Multiplication by Exponential:</strong> L{e<sup>at</sup> f(t)} = F(s - a)</li>
+                <li><strong>Complex Exponential Function:</strong> L{e<sup>(a+ib)t</sup>} = 1 / (s - a - ib)</li>
+                <li><strong>Frequency Modulation:</strong> L{cos(ωt) f(t)} = (F(s - iω) + F(s + iω)) / 2</li>
+                <li><strong>Frequency Modulation (Sine):</strong> L{sin(ωt) f(t)} = (F(s - iω) - F(s + iω)) / (2i)</li>
+                <li><strong>Parabolic Function:</strong> L{t<sup>2</sup>} = 2 / s<sup>3</sup></li>
+                <li><strong>Geometric Series:</strong> L{a<sup>n</sup>} = 1 / (1 - a e<sup>-s</sup>)</li>
+                <li><strong>Inverse Laplace Transform:</strong> f(t) = L<sup>-1</sup>{F(s)}</li>
+                <li><strong>Integral of e<sup>-at</sup>:</strong> L{∫<sub>0</sub><sup>t</sup> e<sup>-aτ</sup> dτ} = 1 /
+                    (s (s + a))</li>
+                <li><strong>Ramp Function (Shifted):</strong> L{(t - a) u(t - a)} = e<sup>-as</sup> / s<sup>2</sup></li>
+                <li><strong>Sinusoidal Function (Shifted):</strong> L{sin(ω(t - a)) u(t - a)} = e<sup>-as</sup> ω /
+                    (s<sup>2</sup> + ω<sup>2</sup>)</li>
+                <li><strong>Cosinusoidal Function (Shifted):</strong> L{cos(ω(t - a)) u(t - a)} = e<sup>-as</sup> s /
+                    (s<sup>2</sup> + ω<sup>2</sup>)</li>
+                <li><strong>Power Series:</strong> L{Σ c<sub>n</sub> t<sup>n</sup>} = Σ c<sub>n</sub> n! /
+                    s<sup>n+1</sup></li>
+                <li><strong>Periodic Function:</strong> L{f(t) = f(t+T)} = (1 - e<sup>-sT</sup>) / (s
+                    ∫<sub>0</sub><sup>T</sup> e<sup>-st</sup> f(t) dt)</li>
+
+                <li><strong>Periodic Function:</strong> L{f(t) = f(t+T)} = (1 - e<sup>-sT</sup>) / (s
+                    ∫<sub>0</sub><sup>T</sup> e<sup>-st</sup> f(t) dt)</li>
+                <li><strong>Damping Exponential Function:</strong> L{e<sup>-at</sup> cos(bt)} = (s + a) / ((s +
+                    a)<sup>2</sup> + b<sup>2</sup>)</li>
+                <li><strong>Damping Sine Function:</strong> L{e<sup>-at</sup> sin(bt)} = b / ((s + a)<sup>2</sup> +
+                    b<sup>2</sup>)</li>
+                <li><strong>Gamma Function:</strong> L{t<sup>n-1</sup> e<sup>-at</sup>} = Γ(n) / (s<sup>n</sup> +
+                    a<sup>n</sup>)</li>
+                <li><strong>Bessel Function of the First Kind:</strong> L{J<sub>n</sub>(at)} = (1 -
+                    s<sup>2</sup>)<sup>-1/2</sup> L{t<sup>n</sup>}</li>
+                <li><strong>Bessel Function of the Second Kind:</strong> L{Y<sub>n</sub>(at)} = -2/π
+                    (L{J<sub>n</sub>(at)} ln(at) - 1/t)</li>
+                <li><strong>Modified Bessel Function of the First Kind:</strong> L{I<sub>n</sub>(at)} = (1 +
+                    s<sup>2</sup>)<sup>-1/2</sup> L{t<sup>n</sup>}</li>
+                <li><strong>Modified Bessel Function of the Second Kind:</strong> L{K<sub>n</sub>(at)} = π/2
+                    (L{I<sub>n</sub>(at)} - L{I<sub>-n</sub>(at)})</li>
+                <li><strong>Legendre Polynomial:</strong> L{P<sub>n</sub>(t)} = (1 - 2st + s<sup>2</sup>)<sup>-1/2</sup>
+                </li>
+                <li><strong>Associated Legendre Function:</strong> L{P<sub>n</sub><sup>m</sup>(cos(θ))} = (1 - 2st +
+                    s<sup>2</sup>)<sup>-1/2</sup></li>
+                <li><strong>Laguerre Polynomial:</strong> L{L<sub>n</sub>(t)} = (1 - s)<sup>-1</sup> L{t<sup>n</sup>}
+                </li>
+                <li><strong>Hermite Polynomial:</strong> L{H<sub>n</sub>(t)} = (1 - 2st + s<sup>2</sup>)<sup>-1/2</sup>
+                </li>
+                <li><strong>Hypergeometric Function:</strong> L{F(a, b; c; t)} = (1 - s)<sup>-b</sup> L{t<sup>a</sup>}
+                </li>
+                <li><strong>Whittaker Function:</strong> L{W<sub>k,μ</sub>(t)} = t<sup>μ</sup> e<sup>-t/2</sup>
+                    L{t<sup>k+μ+1/2</sup>}</li>
+                <li><strong>Fresnel Integrals:</strong> L{C(t)} = (π/2)<sup>-1/2</sup> (L{e<sup>-t<sup>2</sup></sup>} -
+                    i L{e<sup>-t<sup>2</sup></sup>})</li>
+                <li><strong>Dirac Comb Function:</strong> L{δ(t - nT)} = 1 - e<sup>-sT</sup></li>
+                <li><strong>Gaussian Function:</strong> L{e<sup>-at<sup>2</sup></sup>} = π<sup>-1/2</sup>
+                    a<sup>-1/2</sup> e<sup>s<sup>2</sup>/4a</sup></li>
+                <li><strong>Exponential Pulse:</strong> L{e<sup>-at</sup> u(t)} = 1 / (s + a)</li>
+                <li><strong>Periodic Delta Function:</strong> L{δ(t - nT)} = e<sup>-2πins/T</sup></li>
+                <li><strong>Gibbs Phenomenon:</strong> L{e<sup>-at</sup> (t^n / n!)} = n! / (s + a)<sup>n+1</sup></li>
+                <li><strong>Linear Convolution:</strong> L{f(t) * g(t)} = F(s) G(s)</li>
+                <li><strong>Causal Function:</strong> L{u(t) f(t)} = F(s) + 1/s</li>
+                <li><strong>Impulse Response:</strong> L{h(t)} = ∫<sub>0</sub><sup>∞</sup> h(τ) δ(t - τ) dτ</li>
+                <li><strong>Convolution Integral:</strong> L{f(t) * g(t)} = ∫<sub>0</sub><sup>t</sup> f(τ) g(t - τ) dτ
+                </li>
+                <li><strong>Polynomial Transform:</strong> L{a<sub>0</sub> + a<sub>1</sub>t + ... +
+                    a<sub>n</sub>t<sup>n</sup>} = Σ a<sub>i</sub> / (s<sup>i+1</sup>)</li>
+                <li><strong>Sinc Function:</strong> L{sinc(at)} = Π / (s<sup>2</sup> + a<sup>2</sup>)</li>
+                <li><strong>Radial Function:</strong> L{J<sub>n</sub>(at) / (at)} = 1 / ((s + a)<sup>2</sup> +
+                    n<sup>2</sup>)</li>
+                <li><strong>Heat Kernel:</strong> L{e<sup>-at<sup>2</sup></sup>} = π<sup>-1/2</sup> a<sup>-1/2</sup>
+                    e<sup>s<sup>2</sup>/4a</sup></li>
+                <li><strong>Complementary Error Function:</strong> L{erfc(at)} = e<sup>a<sup>2</sup>/s</sup>
+                    π<sup>-1/2</sup> / s</li>
+                <li><strong>Trigonometric Function:</strong> L{cos(at) - cos(bt)} = 2s / (s<sup>2</sup> - a<sup>2</sup>)
+                </li>
+                <li><strong>Multiple Value Integral:</strong> L{∫<sub>0</sub><sup>∞</sup> e<sup>-st</sup> f(t) dt} =
+                    F(s)</li>
+                <li><strong>Transform of a Distribution:</strong> L{δ<sup>(n)</sup>(t)} = s<sup>n</sup></li>
+                <li><strong>Generalized Function:</strong> L{L<sub>n</sub>(at)} = (n - 1)! / (s - a)<sup>n</sup></li>
+                <li><strong>Parameterized Function:</strong> L{f(at)} = (1/a) F(s/a)</li>
+                <li><strong>Modified Function:</strong> L{I<sub>n</sub>(at)} = (1 + s<sup>2</sup>)<sup>-1/2</sup>
+                    L{t<sup>n</sup>}</li>
+                <li><strong>Asymptotic Expansion:</strong> L{f(t)} = Σ (1/n!) f<sup>(n)</sup>(0) / s<sup>n+1</sup></li>
+                <li><strong>Steady State Solution:</strong> L{f(t)} = s / (s<sup>2</sup> - a<sup>2</sup>)</li>
+                <li><strong>Exponential Decay Function:</strong> L{e<sup>-at</sup> f(t)} = (s + a) / ((s +
+                    a)<sup>2</sup> + b<sup>2</sup>)</li>
+                <li><strong>Parameterized Transform:</strong> L{f(at)} = (1/a) F(s/a)</li>
+                <li><strong>Trigonometric Expansion:</strong> L{cos(at) - cos(bt)} = 2s / (s<sup>2</sup> -
+                    a<sup>2</sup>)</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <h3>Applications</h3>
+            <p>The Laplace Transform is widely used in various fields:</p>
+            <ul>
+                <li><strong>Control Systems:</strong> For analyzing and designing control systems.</li>
+                <li><strong>Signal Processing:</strong> For transforming signals into a domain where they can be more
+                    easily manipulated.</li>
+                <li><strong>Differential Equations:</strong> For solving linear ordinary differential equations and
+                    partial differential equations.</li>
+                <li><strong>Physics and Engineering:</strong> For modeling and analyzing physical systems.</li>
+            </ul>
+            <h3>Current Research</h3>
+            <p>Research in the field of Laplace Transform involves exploring its applications in modern control theory,
+                signal processing, and complex systems analysis. Advanced topics include fractional calculus and its
+                applications in diverse fields such as viscoelasticity, fluid dynamics, and financial mathematics.</p>
+        </section>
+
+        <section id="calculator">
+            <h2>Laplace Transform Calculator</h2>
+            <label for="functionInput">Enter a function f(t):</label>
+            <input type="text" id="functionInput" placeholder="e.g., t^2, sin(t), e^(-t)">
+            <button onclick="calculateLaplace()">Calculate</button>
+            <div id="result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Laplace TransformPedia</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
